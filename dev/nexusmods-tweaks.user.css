@@ -1,0 +1,208 @@
+/* ==UserStyle==
+@name        NexusMods Tweaks
+@namespace   DavidJCobb
+@version     1.0.6
+@description Makes minor stylistic edits to NexusMods.com.
+@author      DavidJCobb
+@preprocessor stylus
+@var          checkbox   hideModTileDesc    'Only show mod descriptions on mouseover' 0
+==/UserStyle== */
+/*
+   To install this style, you will currently need the browser add-on called "Stylus."
+   
+   The "Stylish" add-on was previously recommended, but it has been discovered that 
+   Stylish secretly broadcasts your entire browsing history to a marketing company. 
+   The separate add-on, Stylus (sometimes "styl-us"), is currently understood to be 
+   a safe alternative.
+   
+   If you have Stylus installed, then viewing this file "raw" on Github (which is 
+   how I'll link to it) will cause Stylus to automatically set up an install and ask 
+   you to confirm.
+*/
+@-moz-document domain("nexusmods.com") {
+   
+html {
+   --cobb-box-border:       1px solid #222;
+   --cobb-box-border-sharp: 1px solid #3D3D3D;
+   --cobb-box-back-head:    #2D2D2D;
+   --cobb-box-back-body:    #222;
+   --cobb-box-text-body:    #E4E4E4;
+   --cobb-box-shadow:       0 2px 4px 1px #00000040;
+   --cobb-box-shadow-deep:  0 2px 4px 1px #00000060;
+   --cobb-box-shadow-nullify-top: 0 -2px 2px -1px #FFFFFF08;
+   --cobb-box-shadow-deepen-bottom: 0 2px 2px -1px #00000040;
+}
+@keyframes cobb-anim-height-big {
+   from { max-height: 0 }
+   to   { max-height: 40em }
+}
+@keyframes cobb-anim-marquee {
+   0%   { display:block;margin-left:0!important; }
+   100% { display:block;margin-left: -1000px!important; }
+}
+
+/* Set up theme colors. TBH I'm hella salty that the Nexus themselves didn't use CSS vars for this. */
+body {
+   --cobb-game-theme-a: #AAA;
+   --cobb-game-theme-b: #999;
+}
+body.scheme-theme-ReskinOrange{--cobb-game-theme-a:#da8e35;--cobb-game-theme-b:#b4762c}
+body.scheme-theme-ReskinBlue  {--cobb-game-theme-a:#57a5cc;--cobb-game-theme-b:#4584a3}
+body.scheme-theme-Fallout     {--cobb-game-theme-a:#92ab20;--cobb-game-theme-b:#a4c21e}
+body.scheme-theme-Purple      {--cobb-game-theme-a:#824dcb;--cobb-game-theme-b:#a275d3}
+body.scheme-theme-LighterBlue {--cobb-game-theme-a:#7cbeff;--cobb-game-theme-b:#5ea2e5}
+body.scheme-theme-BatmanBlue  {--cobb-game-theme-a:#7495b0;--cobb-game-theme-b:#86aece}
+body.scheme-theme-Burgundy    {--cobb-game-theme-a:#bf4848;--cobb-game-theme-b:#e27171}
+body.scheme-theme-Teal        {--cobb-game-theme-a:#598a9f;--cobb-game-theme-b:#76a3b7}
+body.scheme-theme-Sepia       {--cobb-game-theme-a:#a5704f;--cobb-game-theme-b:#9a7d6b}
+body.scheme-theme-Gold        {--cobb-game-theme-a:#b99d3e;--cobb-game-theme-b:#dfba3b}
+body.scheme-theme-PaleBrown   {--cobb-game-theme-a:#8e7f5f;--cobb-game-theme-b:#a68f5e}
+body.scheme-theme-DeepOrange  {--cobb-game-theme-a:#e6832b;--cobb-game-theme-b:#faa431}
+body.scheme-theme-DarkYellow  {--cobb-game-theme-a:#cbca00;--cobb-game-theme-b:#e7d528}
+body.scheme-theme-DarkRose    {--cobb-game-theme-a:#976060;--cobb-game-theme-b:#bf8282}
+body.scheme-theme-VioletBlue  {--cobb-game-theme-a:#8a93f7;--cobb-game-theme-b:#a4a9e1}
+body.scheme-theme-Brown       {--cobb-game-theme-a:#502c15;--cobb-game-theme-b:#996240}
+body.scheme-theme-Sienna      {--cobb-game-theme-a:#8f482c;--cobb-game-theme-b:#bc6d4e}
+body.scheme-theme-TankGrey    {--cobb-game-theme-a:#858569;--cobb-game-theme-b:#a6a686}
+body.scheme-theme-MossGreen   {--cobb-game-theme-a:#9d9d5a;--cobb-game-theme-b:#c6c665}
+body.scheme-theme-DeepBlue    {--cobb-game-theme-a:#6785fb;--cobb-game-theme-b:#8ba1f9}
+body.scheme-theme-MediumBrown {--cobb-game-theme-a:#b36f3a;--cobb-game-theme-b:#7f613a}
+
+/* == STYLES == */
+/* === GENERAL LAYOUT === */
+
+.modpage > .wrap{background:#111}
+.modpage > .wrap > .wrap{padding-left:0!important;padding-right:0!important} /* remove unneeded "layered padding" */
+/* Ensure that background color doesn't fill the space between the content and footer: */
+.modpage > .wrap > .wrap:last-child{padding-bottom:0!important}
+.modpage > .wrap:last-child{margin-bottom:20px!important}
+
+#featured #feature.blank #pagetitle{padding-top:14px!important}
+   #breadcrumb+h1{margin-top:0!important}
+   .title-left ul.modactions{margin-top:8px!important}
+
+.modpage .col-1-1{background:transparent!important}
+ul.modtabs{background:transparent!important}
+ul.modtabs li{background:#272727}
+ul.modtabs li a.selected,
+.tabcontent{background:#333}
+
+.mod-tile>div{border:var(--cobb-box-border);box-shadow:var(--cobb-box-shadow)}
+   .file-manage-head{background:var(--cobb-box-back-head)}
+   ul.tiles li .tile-desc{background:var(--cobb-box-back-body)}
+
+.form-section{border:var(--cobb-box-border);box-shadow:var(--cobb-box-shadow)}
+.form-section header {background:var(--cobb-box-back-head)}
+.form-section-content{background:var(--cobb-box-back-body)!important}
+
+.container{border-bottom-color:#444!important}
+
+.flex-table{margin:20px 0;border:var(--cobb-box-border);box-shadow:var(--cobb-box-shadow)}
+.flex-table .table th{background:var(--cobb-box-back-head)!important}
+.flex-table .table td{background:var(--cobb-box-back-body)!important}
+.flex-table .table th{border-color:var(--cobb-box-back-body)!important}
+.flex-table .table td{border-color:var(--cobb-box-back-head)!important}
+.flex-table .table thead+tbody>tr:first-child>*{border-top-width:0!important}
+
+.pagination ul li a.page-selected{background:var(--cobb-game-theme-a)!important}
+.pagination ul li a.page-selected:hover{}
+.pagination ul li.empty.extra{top:0!important} /* Fix offset "..." in pagers */
+
+#footer #follow{background:#000000A0!important}
+#footer #sitemap{background:#00000080!important}
+#footer #foot{background:#000000A0!important}
+
+/* ==== Collapsibles ==== */
+/* Definition lists?! This isn't semantic markup! */
+.accordion{border:var(--cobb-box-border);box-shadow:var(--cobb-box-shadow)}
+.accordion dt{background:var(--cobb-box-back-head)!important;margin-bottom:0!important} /* Kill a 1px bottom margin that causes the container background to show through. */
+.accordion dd{background:var(--cobb-box-back-body)!important;margin-bottom:0!important;color:var(--cobb-box-text-body)} /* ditto */
+
+/* Unfortunately, the markup prevents us from separating adjacent collapsibles, because the headers and bodies 
+   of adjacent collapsibles all share a single parent: to work around that, we'd need to move our borders and 
+   box-shadows down to the headers and bodies, but then the bodies' shadows would display overtop the headers.
+
+   This is butts. */
+.accordion * + dt{border-top:var(--cobb-box-border)} /* fine we'll just use a stupid border ugh */
+
+.image-filter-container{background:#222!important}
+
+/* New mods, etc., etc. */
+.static .wrap{background-color:#111!important}
+.static>.wrap>.col-1-1.static-head+.col-1-1{width:auto!important;margin-left:-20px!important;margin-right:-20px!important;} /* cancel out "layered padding" */
+
+.static>.wrap>.col-1-1.static-head+.tabcontent,
+.static>.wrap>.col-1-1.static-head+.tabcontent~.tabcontent{margin-left:-20px!important;margin-right:-20px!important} /* ditto, for "tab contents" with no actual tabs */
+
+/* Sometimes tabcontents are used as general containers without tabs?? Why??? Just use a section element!
+   See: Mods of the Month page */
+.tabcontent+.tabcontent{border-top:1px solid #222}
+
+.mod-tile a.mod-image{background:#000} /* for when images don't fill the width/height of the container */
+
+/* === SPECIFIC THINGS === */
+
+.recent-files a{font-size:.85em!important;padding:.25em .5em!important;background:var(--cobb-box-back-body)!important}
+.recent-files a:hover{background:var(--cobb-box-back-head)!important}
+
+/* ==== Mod pages ==== */
+#featured #feature:not(.blank){height:180px!important;background-size:contain!important} /* Cut mod image header to half-height, and kill background stretching. */
+   #featured #feature:not(.blank)::before{height:180px!important} /* A gradient applied overtop the image; if too large, it overflows upward and covers the site nav */
+.mod_description_container{background:var(--cobb-box-back-body)!important;color:var(--cobb-box-text-body)!important}
+
+/* ==== Mod article pages ==== */
+.articlepage>.wrap>.wrap>.col-1-1>.container:first-of-type{background:#111!important;padding-left:0!important;padding-right:0!important}
+   .articlepage article{background:var(--cobb-box-back-body)!important}
+
+/* ==== Mod files ==== */
+.tab-files .files-description>h3{display:none} /* Hide "Description" label from file download descriptions */
+.tab-files .result.safe{font-size:.85em}
+   .tab-files .result .icon-ticksafe{width:1.2em!important;height:1.2em!important;} /* Firefox doesn't apply this?? What??? */
+
+.file-contain{background:#222} /* File contents modal body */
+
+/* ==== Mod comments ==== */
+.comment{border:var(--cobb-box-border-sharp)!important;box-shadow:var(--cobb-box-shadow-deep);background:var(--cobb-box-back-body)!important}
+   .comment-head{background:var(--cobb-box-back-head)!important}
+   .comments .comment-content{color:var(--cobb-box-text-body)!important;letter-spacing:initial!important}
+
+      .comment figure.quote{font-style:normal!important;background:var(--cobb-box-back-head)!important}
+
+   .comment .comment{border:1px solid #333!important;box-shadow:var(--cobb-box-shadow-deep)!important}
+
+.comments > ol > li{margin-bottom:35px!important}
+   .comments > ol > li ol > li{margin-bottom:30px!important}
+   .comments > ol > li ol > li + li{margin-top:45px!important}
+
+/* ==== Collapsible for refining search results: fix inner borders ==== */
+.refine-results .accordion .refine-left{border-right-color:var(--cobb-box-back-head)!important}
+.refine-additional,
+.refine-advanced{border-top-color:var(--cobb-box-back-head)!important}
+
+/* ==== Mod search ==== */
+.modscategories .tile-desc .category{display:none!important} /* don't redundantly show the category if we're already browsing by category */
+ul.tiles li a.mod-image:hover .view-content{display:none!important} /* don't dim images on hover (dim effect is broken and overflows; not sure if us or Nexus) */
+
+/* ===== Mod search: only show mod descriptions on mouseover ===== */
+/* Notes:
+    - Z-Indices need to be larger than that of the options button (.expandtile, set to 8)
+    - Only affect the "tiles" view setting
+*/
+if hideModTileDesc { /* Stylish installation option. Change to "not" to suppress our changes in this block. */
+   ul.tiles:not(.tile-list) .mod-tile > div{position:relative!important}
+      ul.tiles:not(.tile-list) li .tile-desc{position:static!important;z-index:initial!important;min-height:0!important;max-height:none!important;margin-top:0!important}
+         ul.tiles:not(.tile-list) li .fadeoff{display:none!important}
+         ul.tiles:not(.tile-list) li .tile-desc p{display:none!important}
+         ul.tiles:not(.tile-list) li:hover .tile-desc p{display:block!important;position:absolute;left:-1px;right:-1px;top:100%;z-index:9}
+         /* Display: */
+      /*ul.tiles:not(.tile-list) li .tile-data{position:relative;z-index:10} /* We don't want this covered by the description's shadow */
+         ul.tiles:not(.tile-list) li:hover .tile-desc p{padding:0 20px 10px;border:var(--cobb-box-border);border-top:0;background:var(--cobb-box-back-head)!important;box-shadow:var(--cobb-box-shadow),var(--cobb-box-shadow-nullify-top),var(--cobb-box-shadow-deepen-bottom)!important}
+   		ul.tiles:not(.tile-list) li:hover .tile-desc h3+p{padding:10px 20px!important}
+         ul.tiles:not(.tile-list) li:hover .tile-desc p{animation:1s cobb-anim-height-big;overflow-y:hidden}
+   /* Make every row fill the height: */
+   ul.tiles:not(.tile-list) .mod-tile .mod-tile-left{height:100%;display:flex!important;flex-flow:column nowrap!important}
+      ul.tiles:not(.tile-list) li .tile-desc{flex:1 0 auto!important}
+   
+   .home-trending ul.tiles li.image-tile .tile-desc{padding:15px!important} /*fixes for homepage*/
+}
+}
