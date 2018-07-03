@@ -20,6 +20,7 @@
    I apologize for any inconvenience. I moved the style to a safe location as soon 
    as I heard about all of this.
 */
+@-moz-document domain("halowaypoint.com") {
 
 /*
    COLOR CHART:
@@ -205,3 +206,5 @@ main > .social-share{background:#111!important}
 #tinymce{}
    #tinymce blockquote.box-quote{background:rgba(255,255,255,0.1)!important}
 .mce-codeview{background:#000!important;color:#C1C1C1!important}
+
+}
