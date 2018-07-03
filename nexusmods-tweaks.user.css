@@ -4,6 +4,8 @@
 @version     1.0.6
 @description Makes minor stylistic edits to NexusMods.com.
 @author      DavidJCobb
+@preprocessor stylus
+@var          checkbox   hideModTileDesc    'Only show mod descriptions on mouseover' 0
 ==/UserStyle== */
 /*
    To install this style, you will currently need the browser add-on called "Stylus."
@@ -184,7 +186,7 @@ ul.tiles li a.mod-image:hover .view-content{display:none!important} /* don't dim
     - Z-Indices need to be larger than that of the options button (.expandtile, set to 8)
     - Only affect the "tiles" view setting
 */
-@media /*[[hideModTileDesc]]*/ all { /* Stylish installation option. Change to "not" to suppress our changes in this block. */
+if hideModTileDesc { /* Stylish installation option. Change to "not" to suppress our changes in this block. */
    ul.tiles:not(.tile-list) .mod-tile > div{position:relative!important}
       ul.tiles:not(.tile-list) li .tile-desc{position:static!important;z-index:initial!important;min-height:0!important;max-height:none!important;margin-top:0!important}
          ul.tiles:not(.tile-list) li .fadeoff{display:none!important}
