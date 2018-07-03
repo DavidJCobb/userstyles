@@ -1,0 +1,191 @@
+/* ==UserStyle==
+@name        Halo Waypoint Dark Theme
+@namespace   DavidJCobb
+@version     1.0.5
+@description Reskins Halo Waypoint to use a dark theme.
+@author      DavidJCobb
+==/UserStyle== */
+/*
+   COLOR CHART:
+
+   #3E3E3E -> #C1C1C1
+   #1572A4 -> #378FBF
+*/
+
+*::-moz-selection{color:#FFF!important}
+a{color:#378FBF!important}
+a:hover{color:#C1C1C1!important}
+.dark a{color:#98D0F1!important} /* Used for links overlaid on profile banners. */
+/*
+   Drop-down navs, used as menus on profiles or filter selectors in searches.
+*/
+nav[data-dropdown]{}
+   nav[data-dropdown]>a{color:#FFF!important}
+      nav[data-dropdown]>a::after{top:.65em!important} /* Fix position of the dropdown chevron. */
+   nav[data-dropdown]>ul{background:#111!important}
+      nav[data-dropdown]>ul a{}
+      nav[data-dropdown]>ul a:hover{background:transparent!important}
+
+/*
+   Buttons and button links.
+*/
+a.button,
+span.button,
+button.button{color:#222!important}
+   /*
+      Background color.
+   */
+   a.button::before,
+   span.button::before,
+   button.button::before{background:#378FBF!important}
+   /*
+      Hover background color (uses fancy animation).
+   */
+   a.button::after,
+   span.button::after,
+   button.button::after{background:#C1C1C1!important}
+a.button.disabled,
+span.button.disabled,
+button.button.disabled{color:#C1C1C1!important}
+   a.button.disabled::before,
+   span.button.disabled::before,
+   button.button.disabled::before{background:#444!important}
+/*
+   Button list properties produce inconsistent results across pages, because of the 
+   use of floats. This seems to be the most stable combination, preventing buttons 
+   from being clipped at the tops of threads or forum sections.
+*/
+.button-list{padding-bottom:.8em!important}
+   .button-list>ul{margin-bottom:0!important}
+
+/*
+   Paging.
+*/
+ol.paging{}
+   ol.paging li{}
+      ol.paging li .dots{color:#888!important}
+      ol.paging li a{}
+      ol.paging li a:hover{background:#378FBF!important;color:#000!important}
+
+/*
+   Layout.
+*/
+html{background:#000!important}
+   html::before{opacity:.1!important}
+   html::after{opacity:.1!important}
+   body{color:#C1C1C1!important}
+      div.page{}
+         #site-header{}
+            #site-header>.header-contain{}
+               #site-header .header-texture{}
+                  #site-header .header-texture::before{opacity:.3!important}
+               #site-header .header-wrapper{}
+                  #site-header .header-mini{}
+                  #site-header .site-nav{}
+                     #menu{}
+                        #site-header .site-nav .site-menu li a{color:#C1C1C1!important}
+                        #site-header .site-nav .site-menu li a:hover{color:#378FBF!important}
+                        #site-header .site-nav .site-menu li.selected a::before{border-top-color:#378FBF!important}
+                        #site-header .site-nav .site-menu li.selected a::after{border-bottom-color:#378FBF!important}
+                     /*
+                        Topnav search.
+                     */
+                     #site-header .site-search{}
+                     #site-header.show-search .site-search{background:#181818!important}
+                        #site-header .site-search .search-toggle{}
+                           #site-header .site-search .search-toggle a{color:#C1C1C1!important}
+                        #site-header .site-search .search-form{}
+                        #site-header .site-search .search-form.show-options{}
+                           #site-header .site-search .search-form .search-box{background:#FFF!important}
+                           #site-header .site-search .search-form .search-options{background:#181818!important}
+                                    #site-header .site-search .search-form.show-options .search-options .search-scopes>li{}
+                                       #site-header .site-search .search-form.show-options .search-options .search-scopes>li>button{color:#C1C1C1!important}
+                                       #site-header .site-search .search-form.show-options .search-options .search-scopes>li>button:hover{background:#333!important}
+                     /*
+                        Topnav gamertag menu.
+                     */
+                     #site-header .site-settings{}
+                        #site-header .site-settings .settings-toggle{color:#C1C1C1!important}
+                        #site-header .site-settings .settings-toggle:hover{background:#333!important}
+                        #site-header.show-settings .site-settings a.settings-toggle{background:#333!important}
+                           #site-header.show-settings .site-settings a.settings-toggle .avatar{}
+                              #site-header.show-settings .site-settings a.settings-toggle .avatar .icon.icon--message{}
+                                 #site-header.show-settings .site-settings a.settings-toggle .avatar .icon.icon--message::after{}
+                        #site-header .site-settings nav{background:#333!important}
+                           #site-header .site-settings nav a{color:#C1C1C1!important}
+                           #site-header .site-settings nav a:hover{background:#222!important;color:#378FBF!important}
+         #main{}
+            .light{background:transparent}
+            /*
+               Forum top controls.
+            */
+            .region.region--top-controls{padding-top:0!important;margin-top:0!important}
+               .region.region--top-controls .col{margin-bottom:0!important}
+            .region.area-forums{}
+               .region.area-forums>.content{}
+                  /*
+                     Forum topic list.
+                  */
+                  #topics{}
+                     #topics>div.table{}
+                        #topics>div.table>header{}
+                           #topics>div.table>header>div.td.topics{padding-left:0!important;text-indent:65px!important} /* Fix for misaligned text labels. */
+                        #topics>div.table>.tr{}
+                        #topics>div.table>.tr.topic{}
+                        #topics>div.table>.tr.topic.sticky-topic{background:rgba(0,0,0,.2)!important}
+            /*
+               Thread contents.
+            */
+            .region.region--post{}
+            .region.region--post.light{background:rgba(0,0,0,.2)!important}
+                           .region.region--post .post-content-body{}
+                              .region.region--post .post-content-body .spoiler{}
+                                 .region.region--post .post-content-body .spoiler .spoiler-content{background:rgba(0,0,0,.2)}
+                              .region.region--post .post-content-body blockquote{padding:10px 20px 15px!important;background:rgba(0,0,0,.2)}
+                                 .region.region--post .post-content-body blockquote>.quoted-user{padding:5px 20px 5px;margin:-10px -20px 15px;background:rgba(0,0,0,.2)}
+         #footer{background:#000!important}
+            #footer .social--large{background:#111!important}
+               .footer-social-links a.social-link{color:#FFF!important}
+               .social-share a{color:#C1C1C1!important}
+
+.popup-container .popup-center-horz .popup-center-vert .popup-box{background:#222!important}
+
+/*
+   Service Record odds and ends.
+*/
+.service-record-campaign--halomasterchiefcollection .table > .tr:nth-child(2n){background:#181818!important}
+
+.table.mcc-stats .tr.player{background:rgba(255,255,255,0.1)!important}
+   .table.mcc-stats .tr.player .td.highlighted-stat{background:transparent none!important}
+.region.light .table.mcc-stats.mcc-stats--game-history > .tr:nth-child(2n),
+.region.light .table.mcc-stats.mcc-stats--skill-ranks-current > .tr:nth-child(2n) {background:rgba(0,0,0,0.5)!important}
+
+.table.mcc-stats.mcc-stats--skill-ranks-current > header .td:nth-child(2),
+.table.mcc-stats.mcc-stats--skill-ranks-current > .tr > .td-g .td:nth-child(2){opacity:0.8;color:#000}
+
+.chart .chart--line .label,
+.chart .chart--bar .label{fill:#CCC!important} /* axis labels on graphs */
+.chart .chart--bar .grid{stroke:rgba(255,255,255,.1)} /* lines on graphs */
+
+nav[data-dropdown] > a:not(:hover){background:#222!important}
+
+/*
+   Other odds and ends.
+*/
+dl.properties dt{color:#999} /* character bio properties */
+#original-message{background:#111!important} /* when replying to a PM */
+.tooltip-popup{background:#333!important}
+main > .social-share{background:#111!important}
+
+/*
+   Rich text editor.
+*/
+.mce-container.mce-tinymce{border:1px solid #888!important}
+.icon.mce-ico{background:#444!important;color:#FFF!important}
+.mce-toolbar-grp.mce-panel{background:#3C3C3C!important}
+/*
+   Rich text editor (inner frame).
+*/
+#tinymce{}
+   #tinymce blockquote.box-quote{background:rgba(255,255,255,0.1)!important}
+.mce-codeview{background:#000!important;color:#C1C1C1!important}
