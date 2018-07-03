@@ -19,6 +19,8 @@
    how I'll link to it) will cause Stylus to automatically set up an install and ask 
    you to confirm.
 */
+@-moz-document domain("nexusmods.com") {
+   
 html {
    --cobb-box-border:       1px solid #222;
    --cobb-box-border-sharp: 1px solid #3D3D3D;
@@ -202,4 +204,5 @@ if hideModTileDesc { /* Stylish installation option. Change to "not" to suppress
       ul.tiles:not(.tile-list) li .tile-desc{flex:1 0 auto!important}
    
    .home-trending ul.tiles li.image-tile .tile-desc{padding:15px!important} /*fixes for homepage*/
+}
 }
